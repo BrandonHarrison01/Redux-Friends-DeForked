@@ -24,7 +24,12 @@ class LoginForm extends React.Component {
     login = e => {
         e.preventDefault();
         console.log(this.state.creds)
-        this.props.login(this.state.creds)
+        this.props.login(this.state.creds).then(res => {
+            if (res) {
+                this.props.history.push('/friends')
+            }
+        })
+
         this.setState({ 
             creds: {
                 username: '',

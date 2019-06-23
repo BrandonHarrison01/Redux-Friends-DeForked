@@ -9,7 +9,8 @@ function App() {
   return (
     <div className="App">
       <h1>Friends App</h1>
-      <Route path='/' component={LoginForm}/>
+      <Route exact path='/' component={LoginForm}/>
+      <Route path='/friends' component={FriendsList}/>
       {/* <FriendsList /> */}
     </div>
   );

@@ -11,15 +11,21 @@ class FriendsList extends React.Component {
     }
 
     render() {
-        // if (this.props.fetching) {
-        //     <h2>fetching...</h2>
-        // }
+        if (this.props.fetching) {
+            return <h2>fetching...</h2>
+        }
+        if (this.props.error) {
+            return(
+                <h2>error</h2>
+            )
+        }
+        console.log(this.props.friends)
         return (
             <div>
-                <h1>hi</h1>
-                {/* {this.props.friends.map(friend => {
-                    <Friend key={friend.id} friend={friend} />
-                })} */}
+                {/* <h1>hi</h1> */}
+                {this.props.friends.map(friend => {
+                    return <Friend key={friend.id} friend={friend} />
+                })}
             </div>
         )
     }
@@ -28,6 +34,7 @@ class FriendsList extends React.Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
+        error: state.error,
         friends: state.friends,
         fetching: state.fetchingFriends
     }

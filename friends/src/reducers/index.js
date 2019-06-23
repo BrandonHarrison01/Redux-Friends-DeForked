@@ -45,7 +45,7 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 fetchingFriends: false,
-                error: 'fail'
+                error: action.payload
             }
         default:
             return state;
