@@ -34,3 +34,13 @@ export const getFriends = () => dispatch => {
         })
         .catch(err => dispatch({ type: FRIENDS_FAIL, payload: err.response.data.error }))
 }
+
+export const addFriend = friend => dispatch => {
+    axiosWithAuth()
+        .post(`http://localhost:5000/api/friends`, friend)
+        .then(res => {
+            console.log(res);
+            dispatch({ type: ADD_FRIEND, payload: res.data })
+        })
+        .catch(err => {console.log(err)})
+}

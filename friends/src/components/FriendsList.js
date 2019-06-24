@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { getFriends } from '../actions'
 import Friend from './Friend'
+import AddFriendForm from './AddFriendForm'
 
 class FriendsList extends React.Component {
 
@@ -26,6 +27,7 @@ class FriendsList extends React.Component {
                 {this.props.friends.map(friend => {
                     return <Friend key={friend.id} friend={friend} />
                 })}
+                <AddFriendForm />
             </div>
         )
     }

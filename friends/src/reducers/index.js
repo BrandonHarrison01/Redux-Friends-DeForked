@@ -3,7 +3,8 @@ import {
     FRIENDS_SUCCESS,
     FRIENDS_FAIL,
     LOGIN_START,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    ADD_FRIEND
 } from '../actions';
 
 const initialState = {
@@ -46,6 +47,11 @@ function reducer(state = initialState, action) {
                 ...state,
                 fetchingFriends: false,
                 error: action.payload
+            }
+        case ADD_FRIEND:
+            return {
+                ...state,
+                friends: action.payload
             }
         default:
             return state;
